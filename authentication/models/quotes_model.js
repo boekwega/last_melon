@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 var QuoteSchema = new mongoose.Schema({
   quotation: String,
   source: String

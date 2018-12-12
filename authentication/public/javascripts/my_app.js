@@ -14,10 +14,8 @@ controller('myController', ['$scope', '$http',
     $scope.getAll = function() {
       return $http.get('/quotes').success(function(data) {
         angular.copy(data, $scope.quotes);
+        console.log(data);
       });
     };
-    $scope.getAll();
-
-
   }
 ]);

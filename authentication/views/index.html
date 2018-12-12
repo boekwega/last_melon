@@ -15,7 +15,11 @@
         <a id="logoutLink" href="/logout">logout</a>
         <a id="editLink" href="/user">Edit User</a>
         
-        <div ng-repeat="quote in quotes"></div>
+        <button ng-click="getAll()">Click Here!</button>
+        <div ng-repeat="quote in quotes">
+            Quote: {{quote.quotation}} <br>
+            Source: {{quote.source}}
+        </div>
         
     </div>
     <hr>

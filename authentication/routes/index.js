@@ -75,8 +75,10 @@ router.post('/quotes', function(req, res, next) {
 router.get('/quotes', function(req, res, next) {
   console.log("/quotes route");
   if (req.session.user) {
+    console.log("authenticated");
     Quote.find(function(err, quotes) {
       if (err) { return next(err); }
+      console.log(quotes);
       res.json(quotes);
     });
   }

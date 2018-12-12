@@ -56,6 +56,8 @@ router.get('/user/profile', users.getUserProfile);
 
 var mongoose = require('mongoose');
 var Quote = mongoose.model('Quote');
+//we aren't giving users access to the post route,
+// so we don't verify authentication in the post route.
 router.post('/quotes', function(req, res, next) {
   var quote = new Quote(req.body);
   quote.save(function(err, quote){

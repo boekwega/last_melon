@@ -10,24 +10,26 @@
 <body>
     <div ng-controller="myController">
         <h1>This is a flashcard application</h1>
-        
+
         <h2 id="welcomeText">Welcome! You are logged in as
             <%= username %>
         </h2>
-        
+
         <a id="logoutLink" href="/logout">logout</a>
 
         <button ng-click="getAll()">Click for Questions!</button>
+
+        <br><br>
         <div ng-repeat="quote in quotes">
-            
-            Question: {{quote.quotation}}
-            
+
+            <div class="biggerFont">Question: {{quote.quotation}}</div>
+
             <a href="" ng-click="showme=true">Show Answer</a>
             <button ng-click="showme=false">Hide Answer</button>
             <div class="wrapper">
-                <!--<p ng-hide="showme">Answer will appear here!</p>-->
                 <h2 ng-show="showme">Answer: {{quote.source}}</h2>
             </div>
+            <br>
 
         </div>
 
@@ -37,7 +39,7 @@
         <%= msg %>
     </span>
     <hr>
-   
+
     <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
     <script src="/javascripts/my_app.js"></script>
 </body>

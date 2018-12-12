@@ -13,7 +13,6 @@
             <%= username %>
         </h2>
         <a id="logoutLink" href="/logout">logout</a>
-        <a id="editLink" href="/user">Edit User</a>
 
         <button ng-click="getAll()">Click for Questions!</button>
         <div ng-repeat="quote in quotes">
@@ -35,10 +34,7 @@
         <%= msg %>
     </span>
     <hr>
-    <span id="colorText">
-    Color
-        <%= color %>
-      </span>
+   
     <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
     <script src="/javascripts/my_app.js"></script>
 </body>

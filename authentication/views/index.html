@@ -9,9 +9,12 @@
 
 <body>
     <div ng-controller="myController">
+        <h1>This is a flashcard application</h1>
+        
         <h2 id="welcomeText">Welcome! You are logged in as
             <%= username %>
         </h2>
+        
         <a id="logoutLink" href="/logout">logout</a>
 
         <button ng-click="getAll()">Click for Questions!</button>

@@ -18,6 +18,13 @@ db.on('error', console.error.bind(console, 'connection error:')); //Checks for c
 db.once('open', function() { //Lets us know when we're connected
     console.log('Connected');
 });
+require('./models/quotes_model');
+var db = mongoose.connection; //Saves the connection as a variable to use
+db.on('error', console.error.bind(console, 'connection error:')); //Checks for connection errors
+db.once('open', function() { //Lets us know when we're connected
+    console.log('Connected');
+});
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 

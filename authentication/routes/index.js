@@ -84,5 +84,19 @@ router.get('/quotes', function(req, res, next) {
   }
 })
 
+router.param('quote', function(req, res, next, id) {
+  Quote.findById(id, function (err, quote){
+    if (err) { return next(err); }
+    if (!quote) { return next(new Error("can't find quote")); }
+    req.quote = quote;
+    return next();
+  });
+});
+
+router.delete('/quotes/:quote', function(req, res) {
+  console.log("in Delete");
+  req.quote.remove();
+  res.sendStatus(200);
+});
 
 module.exports = router;

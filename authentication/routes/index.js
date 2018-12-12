@@ -84,8 +84,10 @@ router.get('/quotes', function(req, res, next) {
   }
 })
 
+//we aren't giving users access to the this route,
+// so we don't verify authentication in the this route.
 router.param('quote', function(req, res, next, id) {
-  Quote.findById(id, function (err, quote){
+  Quote.findById(id, function(err, quote) {
     if (err) { return next(err); }
     if (!quote) { return next(new Error("can't find quote")); }
     req.quote = quote;
@@ -93,10 +95,24 @@ router.param('quote', function(req, res, next, id) {
   });
 });
 
+//we aren't giving users access to the this route,
+// so we don't verify authentication in the this route.
 router.delete('/quotes/:quote', function(req, res) {
   console.log("in Delete");
   req.quote.remove();
   res.sendStatus(200);
 });
+
+router.delete('/quotes', function(req, res, next) {
+
+  Quote.find({}).remove(function(err, quotes) { //Calls the find() method on your database
+    if (err) return console.error(err); //If there's an error, print it out
+    else {
+      console.log("in delete all"); //Otherwise console log the comments you found
+      res.sendStatus(200); // we need this or it'll hang for 30 seconds.
+    }
+  })
+});
+
 
 module.exports = router;

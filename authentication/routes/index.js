@@ -19,6 +19,17 @@ router.get('/', function(req, res){
       res.redirect('/login');
     }
 });
+
+router.get('/quotes', function(req, res) {
+    console.log("/quotes route");
+    if(req.session.user){
+        Comment.find(function(err, comments){
+    if(err){ return next(err); }
+    res.json(comments);
+  });
+    }
+})
+
 router.get('/user', function(req, res){
     console.log("/user Route");
     if (req.session.user) {

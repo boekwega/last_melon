@@ -14,13 +14,21 @@
         </h2>
         <a id="logoutLink" href="/logout">logout</a>
         <a id="editLink" href="/user">Edit User</a>
-        
-        <button ng-click="getAll()">Click Here!</button>
+
+        <button ng-click="getAll()">Click for Questions!</button>
         <div ng-repeat="quote in quotes">
-            Quote: {{quote.quotation}} <br>
-            Source: {{quote.source}}
+            
+            Question: {{quote.quotation}}
+            
+            <a href="" ng-click="showme=true">Show Answer</a>
+            <button ng-click="showme=false">Hide Answer</button>
+            <div class="wrapper">
+                <p ng-hide="showme">Answer will appear here!</p>
+                <h2 ng-show="showme">Answer: {{quote.source}}</h2>
+            </div>
+
         </div>
-        
+
     </div>
     <hr>
     <span id="indexMsg">

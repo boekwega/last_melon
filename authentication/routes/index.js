@@ -65,5 +65,15 @@ router.post('/user/delete', users.deleteUser);
 router.post('/login', users.login);
 router.get('/user/profile', users.getUserProfile);
 
+var mongoose = require('mongoose');
+var Quote = mongoose.model('Quote');
+router.post('/quotes', function(req, res, next) {
+  var quote = new Quote(req.body);
+  quote.save(function(err, quote){
+    if(err){ return next(err); }
+    res.json(quote);
+  });
+});
+
 
 module.exports = router;
